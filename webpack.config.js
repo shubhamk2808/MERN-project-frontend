@@ -58,3 +58,6 @@ module.exports = {
     children: true,
   },
 };
+
+//install this (react-app-rewired customize-cra) when you want to make specific customizations to the webpack configuration that aren't easily achievable through the standard Create React App configuration.
+// refernce link :- https://codevoweb.com/setup-material-ui-v5-with-react-js-and-typescript/
