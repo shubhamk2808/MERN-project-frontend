@@ -14,6 +14,7 @@ const routes: RouteObject[] = [
   {
     path: '/',
     element: <PublicLayout />,
+    errorElement: <>error element</>,
     children: [
       { path: '/', index: true, element: <HomePage /> },
       { path: '/login', element: <LoginPage /> },
