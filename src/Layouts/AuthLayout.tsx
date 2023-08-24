@@ -1,16 +1,16 @@
-import React, { Suspense } from 'react';
-import Header from '../Components/UI/Header';
-import Sidebar from '../Components/UI/Sidebar';
-import { NavigateFunction, Outlet, useNavigate } from 'react-router';
+import React, { Suspense } from 'react'
+import Header from '../Components/UI/Header'
+import Sidebar from '../Components/UI/Sidebar'
+import { NavigateFunction, Outlet, useNavigate } from 'react-router'
 
 const AuthLayout: React.FC = () => {
   // const { isAuthenticated, logout } = useAuth();
   const isAuthenticated = true
-  const navigate:NavigateFunction = useNavigate();
+  const navigate: NavigateFunction = useNavigate()
 
   if (!isAuthenticated) {
-    navigate('/login');
-    return null;
+    navigate('/login')
+    return null
   }
   return (
     <div>
@@ -22,7 +22,7 @@ const AuthLayout: React.FC = () => {
         </Suspense>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default AuthLayout;
+export default AuthLayout

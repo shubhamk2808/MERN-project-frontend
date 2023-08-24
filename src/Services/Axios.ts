@@ -21,10 +21,10 @@ const instance: AxiosInstance = axios.create({
 // Request interceptor
 instance.interceptors.request.use(
   (config: any) => {
-    const token: string = localStorage.getItem("token") || '';
-    const yourAuthToken = JSON.parse(token);
+    const token: string = localStorage.getItem('token') || ''
+    const yourAuthToken = JSON.parse(token)
     const headers = config.headers || {}
-    headers['Authorization'] = `Bearer ${yourAuthToken}`;
+    headers['Authorization'] = `Bearer ${yourAuthToken}`
     return { ...config, headers }
   },
   (error: AxiosError) => {

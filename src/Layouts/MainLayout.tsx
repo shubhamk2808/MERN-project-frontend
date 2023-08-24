@@ -1,11 +1,11 @@
 // src/layouts/AuthLayout.tsx
-import React, { ReactNode } from 'react';
-import Header from '../Components/UI/Header';
-import Sidebar from '../Components/UI/Sidebar';
+import React, { ReactNode } from 'react'
+import Header from '../Components/UI/Header'
+import Sidebar from '../Components/UI/Sidebar'
 
 interface MainLayoutProps {
-    children: ReactNode;
-  }
+  children: ReactNode
+}
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
@@ -14,7 +14,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <Sidebar />
       <main>{children}</main>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout
