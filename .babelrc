@@ -39,7 +39,7 @@
         "loose": true
       }
     ],
-    //when you use ES6 import for icons from @mui/icons-material. Startup times can be approximately 6x slower than without named imports from the top-level API. So we are minimizing MUI bundle size using Babel Plugin to support tree-shaking even if the bundler doesn’t support tree-shaking.
+    //when you use ES6 import for icons from @mui/icons-material & @mui/material/core. Startup times can be approximately 6x slower than without named imports from the top-level API. So we are minimizing MUI bundle size using Babel Plugin to support tree-shaking even if the bundler doesn’t support tree-shaking.
     [
       "babel-plugin-import",
       {

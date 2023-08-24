@@ -1,13 +1,13 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles'
 
 interface CustomPalette {
-  primary: string;
-  text: string;
-  textSecondary: string;
-  background: string;
-  backgroundVariant: string;
-  border: string;
-  borderLight: string;
+  primary: string
+  text: string
+  textSecondary: string
+  background: string
+  backgroundVariant: string
+  border: string
+  borderLight: string
 }
 
 const lightThemeProperties: CustomPalette = {
@@ -18,7 +18,7 @@ const lightThemeProperties: CustomPalette = {
   backgroundVariant: 'rgba(251,249,249,1)',
   border: 'rgba(58,52,51,0.12)',
   borderLight: 'rgba(58,52,51,0.05)',
-};
+}
 
 const darkThemeProperties: CustomPalette = {
   primary: 'rgba(220,120,95,1)',
@@ -28,11 +28,11 @@ const darkThemeProperties: CustomPalette = {
   backgroundVariant: 'rgba(28,26,26,1)',
   border: 'rgba(241,233,231,0.15)',
   borderLight: 'rgba(241,233,231,0.05)',
-};
+}
 
 export const lightTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: 'light',
     primary: {
       main: lightThemeProperties.primary,
     },
@@ -58,11 +58,11 @@ export const lightTheme = createTheme({
       },
     },
   },
-});
+})
 
 export const darkTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
       main: darkThemeProperties.primary,
     },
@@ -88,4 +88,4 @@ export const darkTheme = createTheme({
       },
     },
   },
-});
+})

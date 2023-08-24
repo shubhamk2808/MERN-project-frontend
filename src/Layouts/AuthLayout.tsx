@@ -14,6 +14,7 @@ const AuthLayout: React.FC = () => {
   }
   return (
     <div>
+      Auth layout
       <Header />
       <Sidebar />
       <main>
