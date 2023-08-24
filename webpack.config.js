@@ -39,7 +39,10 @@ module.exports = {
    ]
    },
    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'], // Add .ts and .tsx
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+         src: path.resolve(__dirname, 'src'), // This configuration will allow you to use import paths like 'src/Pages/homePage'
+       },
     },
    plugins: [
       new HtmlWebPackPlugin({
