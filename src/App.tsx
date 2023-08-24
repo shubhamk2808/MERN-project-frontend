@@ -1,8 +1,8 @@
 import React from 'react'
-import './App.css'
+import MainRoute from './Router';
 
-const App: React.FC = () => {
-  return <div>My react Component</div>
+const App = () => {
+  return <MainRoute />
 }
 
 export default App
