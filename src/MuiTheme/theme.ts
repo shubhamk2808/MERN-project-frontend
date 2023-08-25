@@ -1,14 +1,5 @@
 import { createTheme } from '@mui/material/styles'
-
-interface CustomPalette {
-  primary: string
-  text: string
-  textSecondary: string
-  background: string
-  backgroundVariant: string
-  border: string
-  borderLight: string
-}
+import { CustomPalette } from 'src/Types/ThemeTypes'
 
 const lightThemeProperties: CustomPalette = {
   primary: 'rgba(215,113,88,1)',
@@ -30,7 +21,7 @@ const darkThemeProperties: CustomPalette = {
   borderLight: 'rgba(241,233,231,0.05)',
 }
 
-export const lightTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -60,7 +51,7 @@ export const lightTheme = createTheme({
   },
 })
 
-export const darkTheme = createTheme({
+const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
@@ -89,3 +80,8 @@ export const darkTheme = createTheme({
     },
   },
 })
+
+export const themes = {
+  light: lightTheme,
+  dark: darkTheme,
+};
