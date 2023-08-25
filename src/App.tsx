@@ -2,14 +2,15 @@ import React, { Suspense } from 'react'
 import MainRoute from './Router'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
-import { lightTheme, darkTheme } from './MuiTheme/theme'
+import { themes } from './MuiTheme/theme'
 import { useAppSelector } from './Hooks'
+import { themeMode } from './Utils/Constants'
 
 const App = () => {
   const { currentTheme } = useAppSelector((state) => state.theme)
-  const theme = currentTheme === 'light' ? lightTheme : darkTheme
+  const theme = currentTheme === themeMode.LIGHT ? themes.light : themes.dark
   return (
-    <Suspense fallback={<div>loading ...</div>}>
+    <Suspense fallback={<div>App is Loading...</div>}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <MainRoute />

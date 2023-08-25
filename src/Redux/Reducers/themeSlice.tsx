@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-interface ThemeState {
-  currentTheme: 'light' | 'dark'
-}
+import { ThemeState } from 'src/Types/ThemeTypes'
+import { getThemeFromLocalStorage, saveThemeToLocalStorage } from 'src/Utils'
+import { themeMode } from 'src/Utils/Constants'
 
 const initialState: ThemeState = {
-  currentTheme: 'light',
+  currentTheme: getThemeFromLocalStorage() || themeMode.LIGHT, // default system theme can be set here in case of default light theme 
 }
 
 const themeSlice = createSlice({
@@ -13,7 +12,8 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.currentTheme = state.currentTheme === 'light' ? 'dark' : 'light'
+      state.currentTheme = state.currentTheme === themeMode.LIGHT ? themeMode.DARK : themeMode.LIGHT
+      saveThemeToLocalStorage(state.currentTheme);
     },
   },
 })
