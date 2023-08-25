@@ -3,29 +3,30 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
   AxiosError,
+  AxiosHeaders,
 } from 'axios'
 
-interface InternalAxiosRequestConfig extends AxiosRequestConfig {
-  headers?: {
-    Authorization?: string
-  }
+export interface InternalAxiosRequestConfig<D = any> extends AxiosRequestConfig<D> {
+  headers: AxiosHeaders;
 }
 
 const instance: AxiosInstance = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: 'https://fakestoreapi.com',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
 })
+
 // Request interceptor
 instance.interceptors.request.use(
-  (config: any) => {
-    const token: string = localStorage.getItem('token') || ''
-    const yourAuthToken = JSON.parse(token)
-    const headers = config.headers || {}
-    headers['Authorization'] = `Bearer ${yourAuthToken}`
-    return { ...config, headers }
+  (config: InternalAxiosRequestConfig) => {
+    config.headers = config.headers ?? {};
+    const token: string | null = localStorage.getItem('token') || null
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
   },
   (error: AxiosError) => {
     return Promise.reject(error)
