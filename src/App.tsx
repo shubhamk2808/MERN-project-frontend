@@ -5,12 +5,13 @@ import { ThemeProvider } from '@mui/material/styles'
 import { themes } from './MuiTheme/theme'
 import { useAppSelector } from './Hooks'
 import { themeMode } from './Utils/Constants'
+import LoadingSpinner from './Components/Common/LoadingSpinner'
 
 const App = () => {
   const { currentTheme } = useAppSelector((state) => state.theme)
   const theme = (currentTheme === themeMode.LIGHT) ? themes.light : themes.dark
   return (
-    <Suspense fallback={<div>App is Loading...</div>}>
+    <Suspense fallback={<LoadingSpinner open={true} />}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <MainRoute />
