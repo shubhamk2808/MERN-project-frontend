@@ -8,7 +8,7 @@ import { themeMode } from './Utils/Constants'
 
 const App = () => {
   const { currentTheme } = useAppSelector((state) => state.theme)
-  const theme = currentTheme === themeMode.LIGHT ? themes.light : themes.dark
+  const theme = (currentTheme === themeMode.LIGHT) ? themes.light : themes.dark
   return (
     <Suspense fallback={<div>App is Loading...</div>}>
       <ThemeProvider theme={theme}>

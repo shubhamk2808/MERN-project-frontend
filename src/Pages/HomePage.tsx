@@ -21,6 +21,9 @@ const HomePage = () => {
       <Button onClick={() => getUsers()}>
         get users
       </Button>
+      <Button onClick={() => navigate('/dashboard')}>
+        dashboard page (private route)
+      </Button>
     </>
   )
 }
