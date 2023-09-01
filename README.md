@@ -33,3 +33,24 @@ To run prettier command
 
 npm run clean
 To remove node_modules and all realted caches
+
+
+temp:-
+
+const Wrapper = styled(Paper)(({ theme }) => ({
+    '.message': {
+        padding: theme.spacing(2),
+        margin: theme.spacing(1),
+        maxWidth: '70%',
+        alignSelf: 'flex-start',
+    },
+    '.userMessage': {
+        alignSelf: 'flex-end',
+        backgroundColor: '#e1ffc7',
+    },
+}));
+
+const Wrapper = styled(Backdrop)`
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+`

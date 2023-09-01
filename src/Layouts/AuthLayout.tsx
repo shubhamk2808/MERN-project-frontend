@@ -2,10 +2,11 @@ import React, { Suspense, useEffect } from 'react'
 import Header from '../Components/UI/Header'
 import Sidebar from '../Components/UI/Sidebar'
 import { NavigateFunction, Outlet, useNavigate } from 'react-router'
+import LoadingSpinner from 'src/Components/Common/LoadingSpinner'
 
 const AuthLayout: React.FC = () => {
   // const { isAuthenticated, logout } = useAuth();
-  const isAuthenticated = false
+  const isAuthenticated = true
   const navigate: NavigateFunction = useNavigate()
 
   useEffect(() => {
@@ -16,11 +17,11 @@ const AuthLayout: React.FC = () => {
 
   return (
     <div>
-      Auth layout
+      {/* Auth layout */}
       <Header />
       <Sidebar />
       <main>
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<LoadingSpinner open={true} />}>
           <Outlet />
         </Suspense>
       </main>

@@ -5,6 +5,8 @@ const port = +process.env.PORT || 7000
 module.exports = {
    context: __dirname,
    entry: './src/index.tsx',
+   // devtool: 'eval', //for development
+   // devtool: 'source-map', // to remove the [VM] prefix files from the Chrome console but consoles the log still 
    output: {
       path: path.resolve( __dirname, 'dist' ),
       filename: 'main.js',
@@ -12,7 +14,8 @@ module.exports = {
    },
    devServer: {
       historyApiFallback: true,
-      port: port
+      port: port,
+      // hot: false, // Disable HMR
    },
    module: {
       rules: [
