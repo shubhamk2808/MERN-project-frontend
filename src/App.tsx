@@ -11,12 +11,12 @@ const App = () => {
   const { currentTheme } = useAppSelector((state) => state.theme)
   const theme = (currentTheme === themeMode.LIGHT) ? themes.light : themes.dark
   return (
-    <Suspense fallback={<LoadingSpinner open={true} />}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Suspense fallback={<LoadingSpinner open={true} />}>
         <MainRoute />
-      </ThemeProvider>
-    </Suspense>
+      </Suspense>
+    </ThemeProvider>
   )
 }
 

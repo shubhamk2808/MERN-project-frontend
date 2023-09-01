@@ -24,6 +24,9 @@ const HomePage = () => {
       <Button onClick={() => navigate('/dashboard')}>
         dashboard page (private route)
       </Button>
+      <Button onClick={() => navigate('/chat')}>
+        chat app (private route)
+      </Button>
     </>
   )
 }

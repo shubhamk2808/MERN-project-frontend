@@ -1,26 +1,23 @@
-import { Backdrop, CircularProgress, Theme } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import React from 'react';
+import { Backdrop, CircularProgress } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
-    },
-}));
 
 interface LoadingSpinnerProps {
     open: boolean;
 }
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ open }) => {
-    const classes = useStyles();
-
     return (
-        <Backdrop className={classes.backdrop} open={open}>
+        <StyledBackdrop open={open}>
             <CircularProgress color="inherit" />
-        </Backdrop>
+        </StyledBackdrop>
     );
 };
 
 export default LoadingSpinner;
+
+const StyledBackdrop = styled(Backdrop)`
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+`

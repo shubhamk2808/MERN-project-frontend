@@ -8,6 +8,7 @@ import PublicLayout from 'src/Layouts/PublicLayout'
 const UserDashboard = lazy(() => import('../Pages/DashboardPage'))
 const LoginPage = lazy(() => import('../Pages/LoginPage'))
 const UserProfilePage = lazy(() => import('../Pages/UserProfilePage'))
+const ChatPage = lazy(() => import('../Pages/ChatPage'))
 
 const routes: RouteObject[] = [
   //Public routes
@@ -17,7 +18,7 @@ const routes: RouteObject[] = [
     errorElement: <>error element</>,
     children: [
       { path: '/', index: true, element: <HomePage /> },
-      { path: '/login', element: <LoginPage /> },
+      { path: 'login', element: <LoginPage /> },
     ],
   },
   // Private routes
@@ -34,11 +35,8 @@ const routes: RouteObject[] = [
         element: <UserDashboard />,
       },
       {
-        path: 'nested',
-        children: [
-          { path: 'child1', element: <UserProfilePage /> },
-          { path: 'child2', element: <UserProfilePage /> },
-        ],
+        path: 'chat',
+        element: <ChatPage />,
       },
     ],
   },
