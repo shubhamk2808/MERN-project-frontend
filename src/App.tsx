@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import MainRoute from './Router'
+import MainRoute from './Routes'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { themes } from './MuiTheme/theme'

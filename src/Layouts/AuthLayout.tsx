@@ -1,29 +1,30 @@
 import React, { Suspense, useEffect } from 'react'
-import Header from '../Components/UI/Header'
-import Sidebar from '../Components/UI/Sidebar'
 import { NavigateFunction, Outlet, useNavigate } from 'react-router'
 import LoadingSpinner from 'src/Components/Common/LoadingSpinner'
+import { useAppSelector } from 'src/Hooks'
+import { Box, Button, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const AuthLayout: React.FC = () => {
-  // const { isAuthenticated, logout } = useAuth();
-  const isAuthenticated = true
+  const { isLogin } = useAppSelector((state) => state.auth)
   const navigate: NavigateFunction = useNavigate()
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login', { replace: true });
-    }
-  }, [isAuthenticated]);
+  if (isLogin) {
+    navigate('/dashboard', { replace: true });
+    return (
+      <Box className="message-alert">
+        <Typography>You are already logged in</Typography>
+        <Button component={Link} to={'/'}>BACK TO HOME</Button>
+      </Box>
+    );
+  }
 
   return (
     <div>
-      {/* Auth layout */}
-      <Header />
-      <Sidebar />
       <main>
-        <Suspense fallback={<LoadingSpinner open={true} />}>
-          <Outlet />
-        </Suspense>
+        {/* <Suspense fallback={<LoadingSpinner open={true} />}> */}
+        <Outlet />
+        {/* </Suspense> */}
       </main>
     </div>
   )

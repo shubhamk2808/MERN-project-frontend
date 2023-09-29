@@ -1,10 +1,14 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import counterReducer from './CounterReducer'
+import SidebarMenuSlice from './SidebarMenuReducer'
 import themeSlice from './themeSlice'
+import authSlice from './authReducer'
+import customizationSlice from './customizationReducer'
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   theme: themeSlice,
+  auth: authSlice,
+  sidebarMenu: SidebarMenuSlice,
+  customization: customizationSlice,
   // ...add other reducers here
 })
 
