@@ -10,7 +10,7 @@ export interface InternalAxiosRequestConfig<D = any> extends AxiosRequestConfig<
   headers: AxiosHeaders;
 }
 
-const instance: AxiosInstance = axios.create({
+const ApiInstance: AxiosInstance = axios.create({
   baseURL: 'https://fakestoreapi.com',
   timeout: 10000,
   headers: {
@@ -19,7 +19,7 @@ const instance: AxiosInstance = axios.create({
 })
 
 // Request interceptor
-instance.interceptors.request.use(
+ApiInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     config.headers = config.headers ?? {};
     const token: string | null = localStorage.getItem('token') || null
@@ -34,7 +34,7 @@ instance.interceptors.request.use(
 )
 
 // Response interceptor
-instance.interceptors.response.use(
+ApiInstance.interceptors.response.use(
   (response: AxiosResponse) => {
     return response
   },
@@ -44,4 +44,4 @@ instance.interceptors.response.use(
   }
 )
 
-export default instance
+export default ApiInstance

@@ -5,10 +5,14 @@ import routes from './RoutesArray'
 const MainRoute = () => {
   const router = createBrowserRouter(routes)
   return (
-    <React.Suspense fallback={<>...</>}>
+    // <React.Suspense fallback={<>...</>}>
+    <>
       <RouterProvider router={router} />
-    </React.Suspense>
+    </>
+    // </React.Suspense>
   )
 }
 
 export default MainRoute
+
+

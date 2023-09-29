@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Paper } from '@mui/material';
+import { Paper, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ChatArea from './Component/ChatArea';
 import ChatInput from './Component/ChatInput';
+import ChatLists from './Component/ChatLists';
+import ChatNav from './Component/ChatNav';
+import ChatSidebar from './Component/ChatSidebar';
 
 interface ChatMessage {
     text: string;
@@ -18,11 +21,16 @@ const ChatApp: React.FC = () => {
     };
 
     return (
-        <ChatWrapper className='container'>
-            <Paper className='chatContainer' elevation={3}>
+        <ChatWrapper>
+            {/* <Paper className='chatContainer' elevation={3}>
                 <ChatArea messages={messages} currentUser={currentUser} />
                 <ChatInput onSendMessage={handleSendMessage} />
-            </Paper>
+            </Paper> */}
+            <ChatNav />
+            <Box className='chatScreen'>
+                <ChatSidebar />
+                <ChatArea messages={messages} currentUser={currentUser} />
+            </Box>
         </ChatWrapper>
     );
 };
@@ -30,16 +38,13 @@ const ChatApp: React.FC = () => {
 export default ChatApp;
 
 
-const ChatWrapper = styled(Container)(({ theme }) => ({
-    '.container': {
+const ChatWrapper = styled(Box)(({ theme }) => ({
+    // backgroundColor: 'green',
+    width: '100%',
+    padding: '10px 50px',
+    '.chatScreen': {
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        paddingTop: theme.spacing(4),
-    },
-    '.chatContainer': {
-        width: '100%',
-        maxWidth: '600px',
-        padding: theme.spacing(2),
-    },
+        // backgroundColor: 'orange',
+        height: 'calc(100vh - 60px)'
+    }
 }));

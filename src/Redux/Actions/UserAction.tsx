@@ -1,16 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import ApiInstance from 'src/Services/Axios';
 
-export const loginUser: any = createAsyncThunk(
-  'auth/loginUser',
-  async (payload, { rejectWithValue }) => {
-    try {
-    } catch (e: any) {
-      return rejectWithValue(e.response)
-    }
-  }
-)
-
 export const getProducts = createAsyncThunk('user/products',
   async (payload, { rejectWithValue }) => {
     console.log({ payload }, "check products")
@@ -35,3 +25,12 @@ export const getUsers = async () => {
     throw error;
   }
 }
+
+export const fetchUserById = createAsyncThunk(
+  'users/fetchById',
+  // if you type your function argument here
+  async (userId: number) => {
+    const response = await fetch(`https://reqres.in/api/users/${userId}`)
+    return (await response.json())
+  }
+)
